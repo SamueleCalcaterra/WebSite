@@ -166,7 +166,7 @@ const themeButton = document.getElementById('theme-button');
 const darkTheme = 'dark-theme';
 const iconTheme = 'uil-sun';
 
-const selectedTheme = localStorage.getItem('selected-theme');
+let userPreferredTheme = localStorage.getItem('selected-theme');
 const selectedIcon = localStorage.getItem('selected-icon');
 
 const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light';
@@ -184,13 +184,15 @@ function updateThemeBasedOnTime() {
     const currentHour = new Date().getHours();
     const currentTheme = getCurrentTheme();
 
-    if (currentHour >= 10 && currentHour < 18) {
-        if (currentTheme === 'dark') {
-            toggleTheme();
-        }
-    } else {
-        if (currentTheme === 'light') {
-            toggleTheme();
+    if (!userPreferredTheme) {
+        if (currentHour >= 10 && currentHour < 18) {
+            if (currentTheme === 'dark') {
+                toggleTheme();
+            }
+        } else {
+            if (currentTheme === 'light') {
+                toggleTheme();
+            }
         }
     }
 }
@@ -206,6 +208,7 @@ function toggleTheme() {
 }
 
 themeButton.addEventListener('click', () => {
+    userPreferredTheme = userPreferredTheme === 'dark' ? 'light' : 'dark';
     toggleTheme();
 });
 
