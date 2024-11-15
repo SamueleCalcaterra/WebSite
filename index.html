@@ -1,448 +1,1464 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
 
-        <!--==================== UNICONS ====================-->
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
-        
-        <!--==================== SWIPER CSS====================-->
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vCard - Personal Certificati</title>
 
-        <!--==================== CSS ==========-->
-        <link rel="stylesheet" href="assets/css/styles.css">
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
 
-        <title>Samuele Portfolio and CV</title>
-    </head>
-    <body>
-        <!--==================== HEADER ====================-->
-        <header class="header" id="header">
-            <nav class="nav container">
-                <a href="#" class="nav__logo">Samuele</a>
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list grid">
-                        <li class="nav__item">
-                            <a href="#home" class="nav__link active-link">
-                                <i class="uil uil-estate nav__icon"></i> Home
-                            </a>
-                        </li>
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
 
-                        <li class="nav__item">
-                            <a href="#about" class="nav__link">
-                                <i class="uil uil-user nav__icon"></i> About
-                            </a>
-                        </li>
+<body>
 
-                        <li class="nav__item">
-                            <a href="#skills" class="nav__link">
-                                <i class="uil uil-file-alt nav__icon"></i> Percorso
-                            </a>
-                        </li>
+  <!--
+    - #MAIN
+  -->
 
-                        <li class="nav__item">
-                            <a href="#contact" class="nav__link">
-                                <i class="uil uil-message nav__icon"></i> Contattami
-                            </a>
-                        </li>
+  <main>
 
-                    </ul>
-                    
-                    <i class="uil uil-times nav__close" id="nav-close"></i>
-                </div>
+    <!--
+      - #SIDEBAR
+    -->
 
-                <div class="nav__btns">
-                    <!-- Theme change button -->
-                    <i class="uil uil-moon change-theme" id="theme-button"></i>
+    <aside class="sidebar" data-sidebar>
 
-                    <div class="nav__toggle" id="nav-toggle">
-                        <i class="uil uil-apps"></i>
-                    </div>
-                </div>
-            </nav>
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.png" alt="Samuele Scarinzi" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Om Kharche">Samuele Scarinzi</h1>
+
+          <p class="title">Intermediario Assicurativo</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:omtestmail@gmail.com" class="contact-link">ss.scarinzi@gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Telefono</p>
+
+              <a href="tel:+12133522795" class="contact-link">+39 3515008604</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="document-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Iscrizione RUI</p>
+
+              <a href="https://ruipubblico.ivass.it/rui-pubblica/ng/#/workspace/registro-unico-intermediari" class="contact-link">E000763691</a>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Istruzione</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Certificati</button>
+          </li>
+          
+          <!-- <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Blog</button>
+          </li> -->
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">Chi sono?</h2>
         </header>
 
-        <!--==================== MAIN ====================-->
-        <main class="main">
-            <!--==================== HOME ====================-->
-            <section class="home section" id="home">
-                <div class="home__container container grid">
-                    <div class="home__content grid">
-                        <div class="home__social">
-                            <a href="https://www.instagram.com/scanzi__" target="_blank" class="home__social-icon">
-                                <i class="uil uil-instagram"></i>                            
-                            </a>
-                            <a href="https://www.facebook.com/people/Samuele-Scarinzi/pfbid02RyVGUyYuA1V9KxD5onrnfGtQMw6cbgNzx6QRtkdUob6sgw65RW2UmyPBSisK52LFl/" target="_blank" class="home__social-icon">
-                                <i class="uil uil-facebook-f"></i>
-                            </a>
-                        </div>
-    
-                        <div class="home__img">
-                            <svg class="home__blob" viewBox="0 0 200 187">
-                                <mask id="mask0" mask-type="alpha">
-                                    <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-                                    130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-                                    97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-                                    0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
-                                </mask>
-                                <g mask="url(#mask0)">
-                                    <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-                                    165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
-                                    129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
-                                    -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
-
-                                    <!--==================== 
-                                        Insert your image in the Img folder and Change your image |
-                                        Center your image with X: horizontal, Y: vertical 
-                                    ====================-->
-                                    <image class="home__blob-img" x="12" y="18" href="assets/img/perfil.png"/>
-                                </g>
-                            </svg>
-                        </div>
-
-                        <div class="home__data">
-                            <h1 class="home__title">Hi, I'm Samuele</h1>
-                            <h3 class="home__subtitle">Studente Informatica Telecomunicazioni</h3>
-                            <p class="home__description">"Cresci ogni giorno, sfida ogni limite: il tuo futuro è fatto di possibilità illimitate."</p>
-                            <a href="#contact" class="button button--flex">
-                                Contattami <i class="uil uil-message button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    
-                    <div class="home__scroll">
-                        <a href="#about" class="home__scroll-button button--flex">
-                            <i class="uil uil-mouse-alt home__scroll-mouse"></i>
-                            <span class="home__scroll-name">Scroll down</span>
-                            <i class="uil uil-arrow-down home__scroll-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!--==================== ABOUT ====================-->
-            <section class="about section" id="about">
-                <h2 class="section__title">About Me</h2>
-                <span class="section__subtitle">Chi sono?</span>
-
-                <div class="about__container container grid">
-                    <img src="assets/img/about.png" alt="" class="about__img">
-
-                    <div class="about__data">
-                        <p class="about__description">Mi chiamo Samuele, appassionato di tecnologia e innovazione. Amo esplorare l'informatica e le telecomunicazioni, sempre pronto a risolvere problemi con creatività e a crescere affrontando nuove sfide.
-                        </p>
-
-                        <div class="about__info">
-                            <div>
-                                <span class="about__info-title">06+</span>
-                                <span class="about__info-name">Anni <br> nel settore tech</span>
-                            </div>
-
-                            <div>
-                                <span class="about__info-title">03+</span>
-                                <span class="about__info-name">Progetti <br> completati</span>
-                            </div>
-
-                            <div>
-                                <span class="about__info-title">05+</span>
-                                <span class="about__info-name">Obbiettivi <br> futuri</span>
-                            </div>
-                        </div>
-
-                        <!-- <div class="about__buttons">
-                            <a download="" href="assets/pdf/cv_scarinzi_samuele.pdf" class="button button--flex">
-                                Download CV <i class="uil uil-download-alt button__icon"></i>
-                            </a>
-                        </div> -->
-                    </div>
-                </div>
-            </section>
+        <section class="about-text">
+          <p>
+            Mi chiamo <strong>Samuele Scarinzi</strong> e lavoro presso <strong>Vittoria Assicurazioni - Agenzia Generale di Arluno</strong>, dove mi occupo di offrire soluzioni personalizzate e un servizio di qualità, sempre attento alle esigenze dei clienti.
+          </p>
+        
+          <p>
+            Sono iscritto al <strong>RUI (Registro Unico degli Intermediari assicurativi e riassicurativi)</strong> in <strong>Sezione E</strong>, un riconoscimento che attesta la mia professionalità e competenza nel settore assicurativo.  
+          </p>
+        
+          <p>
+            Ho conseguito il diploma con una votazione di <strong>92/100</strong>, un traguardo che dimostra il mio impegno costante e la mia determinazione. La mia passione per l’informatica mi porta a restare sempre aggiornato sulle innovazioni tecnologiche, che integro con successo nel mio lavoro quotidiano.
+          </p>
+        
+          <p>
+            Offro un approccio basato su <strong>competenza</strong>, <strong>dedizione</strong> e una costante ricerca delle migliori soluzioni, per garantire ai miei clienti risultati concreti e affidabili.
+          </p>
+        </section>
+        
 
 
-            <!--==================== QUALIFICATION ====================-->
-            <section class="qualification section" id="skills">
-                <h2 class="section__title">Percorso</h2>
-                <span class="section__subtitle">Scolastico | Professionale</span>
+        <!--
+          - service
+        -->
 
-                <div class="qualification__container container">
-                    <div class="qualification__tabs">
-                        <div class="qualification__button button--flex qualification__active" data-target="#education">
-                            <i class="uil uil-graduation-cap qualification__icon"></i>
-                            Educazione
-                        </div>
+        <section class="service">
 
-                        <!-- <div class="qualification__button button--flex" data-target="#work">
-                            <i class="uil uil-briefcase-alt qualification__icon"></i>
-                            Work
-                        </div>                       -->
-                    </div>
+          <h3 class="h3 service-title">Opportunitá</h3>
 
-                    <div class="qualification__sections">
-                        <!--=============== QUALIFICATION CONTENT 1 ===============-->
-                        <div class="qualification__content qualification__active" data-content id="education">
-                            <!--=============== QUALIFICATION 1 ===============-->
-                            <div class="qualification__data">
-                                <div>
-                                    <h3 class="qualification__title">Licenzia Media</h3>
-                                    <span class="qualification__subtitle">Presso l'Istituto Comprensivo Erasmo Da Rotterdam</span>
-                                    <div class="qualification__calendar">
-                                        <i class="uil uil-calendar-alt"></i>
-                                        2016 - 2019
-                                    </div>
-                                </div>
-    
-                                <div>
-                                    <span class="qualification__rounder"></span>
-                                    <span class="qualification__line"></span>
-                                </div>
-                            </div>
-                            
-                            <!--=============== QUALIFICATION 2 ===============-->
-                            <div class="qualification__data">                                 
-                                <div></div>
+          <ul class="service-list">
 
-                                <div>
-                                    <span class="qualification__rounder"></span>
-                                    <span class="qualification__line"></span>
-                                </div>
-                          
-                                <div>
-                                    <h3 class="qualification__title">1' Biotecnologie Sanitarie Cambridge</h3>
-                                    <span class="qualification__subtitle">Presso IIS Curie-Sraffa</span>
-                                    <div class="qualification__calendar">
-                                        <i class="uil uil-calendar-alt"></i>
-                                        2019 - 2020
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <!--=============== QUALIFICATION 3 ===============-->
-                            <div class="qualification__data">
-                                <div>
-                                    <h3 class="qualification__title">2' Info. e Telecomunicazioni</h3>
-                                    <span class="qualification__subtitle">Presso IIS Curie-Sraffa</span>
-                                    <div class="qualification__calendar">
-                                        <i class="uil uil-calendar-alt"></i>
-                                        2020 - 2021
-                                    </div>
-                                </div>
-    
-                                <div>
-                                    <span class="qualification__rounder"></span>
-                                    <span class="qualification__line"></span>
-                                </div>
-                            </div>
-    
-                            <!--=============== QUALIFICATION 4 ===============-->
-                            <div class="qualification__data">
-                                <div></div>
-                                     
-                                <div class="qualification__time">
-                                    <span class="qualification__rounder"></span>
-                                    <!-- <span class="qualification__line"></span> -->
-                                </div>
+            <li class="service-item">
 
-                                <div>
-                                    <h3 class="qualification__title">Informatica e Telecomunicazioni</h3>
-                                    <span class="qualification__subtitle">Istituto Paritario "Future's Institute"</span>
-                                    <div class="qualification__calendar">
-                                        <i class="uil uil-calendar-alt"></i>
-                                         2022 - 2024
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-    
-                        <!--=============== QUALIFICATION CONTENT 2 ===============-->
-                        <div class="qualification__content" data-content id="work">
-                            <!--=============== QUALIFICATION 1 ===============-->
-                            <div class="qualification__data">
-                                <div>
-                                    <h3 class="qualification__title">Software Engineer</h3>
-                                    <span class="qualification__subtitle">Microsoft - Peru</span>
-                                    <div class="qualification__calendar">
-                                        <i class="uil uil-calendar-alt"></i>
-                                        2016-2018
-                                    </div>
-                                </div>
-    
-                                <div>
-                                    <span class="qualification__rounder"></span>
-                                    <span class="qualification__line"></span>
-                                </div>
-                            </div>
-                            
-                            <!--=============== QUALIFICATION 2 ===============-->
-                            <div class="qualification__data">
-                                <div></div>
-    
-                                <div class="qualification__time">
-                                    <span class="qualification__rounder"></span>
-                                    <span class="qualification__line"></span>
-                                </div>
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-design.png
+                " alt="design icon" width="40">
+              </div>
 
-                                <div>
-                                    <h3 class="qualification__title">Frontend Developer</h3>
-                                    <span class="qualification__subtitle">Apple Inc - Spain</span>
-                                    <div class="qualification__calendar">
-                                        <i class="uil uil-calendar-alt"></i>
-                                        2018-2020
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <div class="qualification__data">
-                                <div>
-                                    <h3 class="qualification__title">Ui Designer</h3>
-                                    <span class="qualification__subtitle">Figma - Spain</span>
-                                    <div class="qualification__calendar">
-                                        <i class="uil uil-calendar-alt"></i>
-                                        2020-2021
-                                    </div>
-                                </div>
-    
-                                <div>
-                                    <span class="qualification__rounder"></span>
-                                    <!-- <span class="qualification__line"></span> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Personalized Insurance Solutions</h4>
 
-            <!--==================== PROJECT IN MIND ====================-->
-            <section class="project section">
-                <div class="project__bg">
-                    <div class="project__container container grid">
-                        <div class="project__data">
-                            <h2 class="project__title">Hai un proggetto da propormi?</h2>
-                            <p class="project__description">Se sono affine a quello che cerchi per la tua realtá lavorativa, sarò lieto di discutere come posso contribuire al successo del vostro team.</p>
-                            <a href="#" class="button button--flex button--white">
-                                Contattami
-                                <i class="uil uil-message button__icon"></i>
-                            </a>
-                        </div>
-    
-                        <img src="assets/img/project.png" alt="" class="project__img">
-                    </div>
-                </div>
-            </section>
+                <p class="service-item-text">
+                  Consulenza assicurativa su misura per proteggere ciò che conta davvero, sia per privati che per aziende.
+                </p>
+              </div>
 
-            <!--==================== CONTACT ME ====================-->
-            <section class="contact section" id="contact">
-                <h2 class="section__title">Contattami</h2>
-                <span class="section__subtitle">Get in touch</span>
+            </li>
 
-                <div class="contact__container container grid">
-                    <div>
-                        <!-- <div class="contact__information">
-                            <i class="uil uil-phone contact__icon"></i>
-                            <div>
-                                <h3 class="contact__title">Call Me</h3>
-                                <span class="contact__subtitle">999-777-666</span>
-                            </div>
-                        </div> -->
+            <li class="service-item">
 
-                        <div class="contact__information">
-                            <i class="uil uil-envelope contact__icon"></i>
-                            <div>
-                                <h3 class="contact__title">Email</h3>
-                                <span class="contact__subtitle">ss.scarinzi@gmail.com</span>
-                            </div>
-                        </div>
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-dev.png" alt="Web development icon" width="40">
+              </div>
 
-                        <!-- <div class="contact__information">
-                            <i class="uil uil-map-marker contact__icon"></i>
-                            <div>
-                                <h3 class="contact__title">Location</h3>
-                                <span class="contact__subtitle">Peru - Lima Av. Bolivar #123</span>
-                            </div>
-                        </div> -->
-                    </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Risk Management</h4>
 
-                    <form id="contact-form" class="contact__form grid">
-                        <div class="contact__inputs grid">
-                            <div class="contact__content">
-                                <label for="name" class="contact__label">Nome</label>
-                                <input type="text" id="name" class="contact__input" name="name">
-                            </div>
-                            <div class="contact__content">
-                                <label for="email" class="contact__label">Email</label>
-                                <input type="email" id="email" class="contact__input" name="email">
-                            </div>
-                        </div>
-                        <div class="contact__content">
-                            <label for="project" class="contact__label">Progetto - Oggetto</label>
-                            <input type="text" id="project" class="contact__input" name="project">
-                        </div>
-                        <div class="contact__content">
-                            <label for="message" class="contact__label">Messaggio</label>
-                            <textarea id="message" name="message" cols="0" rows="7" class="contact__input"></textarea>
-                        </div>
-                        
-                        <div>
-                            <button type="submit" class="button button--flex contact__button">
-                                Send Message
-                                <i class="uil uil-message button__icon"></i>
-                            </button>
-                        </div>
-                    </form>
-                    
+                <p class="service-item-text">
+                  Analisi approfondita dei rischi per identificare le migliori coperture e garantire sicurezza e tranquillità.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-app.png" alt="mobile app icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Investment & Savings Plans</h4>
+
+                <p class="service-item-text">
+                  Soluzioni di investimento e risparmio per aiutarti a raggiungere i tuoi obiettivi finanziari a lungo termine.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-photo.png" alt="camera icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Claims Assistance</h4>
+
+                <p class="service-item-text">
+                  Supporto completo e tempestivo nella gestione dei sinistri per garantire un’esperienza senza complicazioni.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials
+        -->
+
+        <!-- <section class="testimonials">
+
+          <h3 class="h3 testimonials-title">Testimonials</h3>
+
+          <ul class="testimonials-list has-scrollbar">
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Rohit Patil</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
                 </div>
 
-            </section>
-        </main>
+              </div>
+            </li>
 
-        <!--==================== FOOTER ====================-->
-        <footer class="footer">
-            <div class="footer__bg">
-                <div class="footer__container container grid">
-                    <div>
-                        <h1 class="footer__title">Samuele</h1>
-                        <span class="footer__subtitle">Studente Informatica e Telecomunicazioni</span>
-                    </div>
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
 
-                    <!-- <ul class="footer__links">
-                        <li>
-                            <a href="#services" class="footer__link">Services</a>
-                        </li>
-                        <li>
-                            <a href="#portfolio" class="footer__link">Portfolio</a>
-                        </li>
-                        <li>
-                            <a href="#contact" class="footer__link">Contactme</a>
-                        </li>
-                    </ul> -->
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
+                </figure>
 
-                    <div class="footer__socials">
-                        <a href="https://www.facebook.com/people/Samuele-Scarinzi/pfbid02RyVGUyYuA1V9KxD5onrnfGtQMw6cbgNzx6QRtkdUob6sgw65RW2UmyPBSisK52LFl/" target="_blank" class="footer__social">
-                            <i class="uil uil-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com/scanzi__" target="_blank" class="footer__social">
-                            <i class="uil uil-instagram"></i>
-                        </a>
-                        <!-- <a href="https://twitter.com/" target="_blank" class="footer__social">
-                            <i class="uil uil-twitter-alt"></i>
-                        </a> -->
-                    </div>
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Dipti Sinha</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
                 </div>
 
-                <p class="footer__copy">&#169; Samuele. All right reserved</p>
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                    lot of experience
+                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                    consectetur adipiscing
+                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </section> -->
+
+
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.png" alt="quote icon">
             </div>
-        </footer>
 
-        <!--========== SCROLL TOP ==========-->
-        <a href="#" class="scrollup" id="scroll-top">
-            <i class="uil uil-arrow-up scrollup__icon"></i>
-        </a>
+            <div class="modal-content">
 
-        <!--==================== SWIPER JS ====================-->
-        <script src="assets/js/swiper-bundle.min.js"></script>
+              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
 
-        <!--==================== MAIN JS ====================-->
-        <script src="assets/js/main.js"></script>
-    </body>
+              <time datetime="2021-06-14">14 June, 2021</time>
+
+              <div data-modal-text>
+                <p>
+                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                  lot of experience
+                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                  consectetur adipiscing
+                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!--
+          - clients
+        -->
+
+        <!-- <section class="clients">
+
+          <h3 class="h3 clients-title">Clients</h3>
+
+          <ul class="clients-list has-scrollbar">
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-1-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-2-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-3-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-4-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-5-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-6-color.png" alt="client logo">
+              </a>
+            </li>
+
+          </ul>
+
+        </section> -->
+
+      </article>
+
+
+
+
+
+      <!--
+        - #istruzione
+      -->
+
+      <article class="istruzione" data-page="istruzione">
+
+        <header>
+          <h2 class="h2 article-title">Istruzione</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Percorso Scolastico</h3>
+          </div>
+
+          <ol class="timeline-list">
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Diploma in Informatica e Telecomunicazioni </h4>
+
+              <span>2022 — 2024</span>
+
+              <p class="timeline-text">
+                Istituto Paritario "Future's Institute"
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">2' Info. e Telecomunicazioni </h4>
+
+              <span>2020 — 2021</span>
+
+              <p class="timeline-text">
+                Presso l'istituto IIS Curie-Sraffa
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">1' Biotecnologie Sanitarie Cambridge</h4>
+
+              <span>2019 — 2020</span>
+
+              <p class="timeline-text">
+                Presso l'istituto IIS Curie-Sraffa
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Licenza Media</h4>
+
+              <span>2016 — 2019</span>
+
+              <p class="timeline-text">
+                Presso l'Istituto Comprensivo Erasmo Da Rotterdam di Cisliano
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <!-- <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Esperienza Lavorative</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Creative director</h4>
+
+              <span>2015 — Present</span>
+
+              <p class="timeline-text">
+                Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas
+                molestias
+                exceptur.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Art director</h4>
+
+              <span>2013 — 2015</span>
+
+              <p class="timeline-text">
+                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
+                quas molestias
+                exceptur.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Web designer</h4>
+
+              <span>2010 — 2013</span>
+
+              <p class="timeline-text">
+                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
+                quas molestias
+                exceptur.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section> -->
+
+        <!-- <section class="skill">
+
+          <h3 class="h3 skills-title">Le mie skills</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Comunicazione e </h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Graphic design</h5>
+                <data value="70">70%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 70%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Branding</h5>
+                <data value="90">90%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">WordPress</h5>
+                <data value="50">50%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 50%;"></div>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section> -->
+
+      </article>
+
+
+
+
+
+      <!--
+        - #Certificati
+      -->
+
+      <article class="Certificati" data-page="certificati">
+
+        <header>
+          <h2 class="h2 article-title">Certificati</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="select-item">
+              <button data-select-item>Tutti</button>
+            </li>
+
+            <li class="select-item">
+              <button data-select-item>Contratto Assicurativo</button>
+            </li>
+            
+            <li class="select-item">
+              <button data-select-item>Rami Elementari/Vita</button>
+            </li>
+            <li class="select-item">
+              <button data-select-item>Rami Auto/Infortuni</button>
+            </li>
+
+            <li class="select-item">
+              <button data-select-item>Altri</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>Tutti</button>
+              </li>
+  
+              <li class="select-item">
+                <button data-select-item>Contratto Assicurativo</button>
+              </li>
+              
+              <li class="select-item">
+                <button data-select-item>Rami Elementari/Vita</button>
+              </li>
+              <li class="select-item">
+                <button data-select-item>Rami Auto/Infortuni</button>
+              </li>
+  
+              <li class="select-item">
+                <button data-select-item>Altri</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/ivass_finale.png" alt="finance" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Certificato IVASS</h3>
+
+                <p class="project-category">Certificato Conclusivo</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="rami auto/infortuni">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/1384462104SS.jpg" alt="orizon" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Assicurazione RC Veicoli</h3>
+
+                <p class="project-category">Rami Auto/Infortuni</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="altri">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/2082856814SS.jpg" alt="fundo" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Le basi della relazione con il cliente</h3>
+
+                <p class="project-category">Altri</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="altri">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/2929420767SS.jpg" alt="brawlhalla" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Il sinistro assicurativo</h3>
+
+                <p class="project-category">Altri</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="rami elementari/vita">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/3427237383SS.jpg" alt="dsm." loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Le assicurazioni sulla vita</h3>
+
+                <p class="project-category">Rami Elementari/Vita</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="rami auto/infortuni">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/3541893199SS.jpg" alt="metaspark" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">VCT Veicoli e Imbarcazioni</h3>
+
+                <p class="project-category">Rami Auto/Infortuni</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="altri">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/3628288578SS.jpg" alt="summary" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Compliance 231</h3>
+
+                <p class="project-category">Altri</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="altri">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/3727649908SS.jpg" alt="summary" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Comprendere il cliente e i suoi bisogni</h3>
+
+                <p class="project-category">Altri</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="rami elementari/vita">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/3944418496SS.jpg" alt="summary" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">L'assicurazione malattia: elementi di base</h3>
+
+                <p class="project-category">Contratto Assicurativo</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="contratto assicurativo">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/4077750656SS.jpg" alt="task manager" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Elementi tecnici di base: rami danni</h3>
+
+                <p class="project-category">Contratto Assicurativo</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="contratto assicurativo">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/4477315084SS.jpg" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Basi giuridche del contratto di assicurazione</h3>
+
+                <p class="project-category">Contratto Assicurativo</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="rami elementari/vita">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/4477315084SS.jpg" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">L'Assicurazione incendio: elementi di base</h3>
+
+                <p class="project-category">Rami Elementari/Vita</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="rami elementari/vita">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/3929979808SS.jpg" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Assicurazione in Agricoltura</h3>
+
+                <p class="project-category">Rami Elementari/Vita</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="altri">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/4477315084SS.jpg" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">la normativa sull'antiriciclaggio</h3>
+
+                <p class="project-category">altri</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="altri">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/0887468018SS.jpg" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Le assicurazioni property - I rischi catastrofali</h3>
+
+                <p class="project-category">altri</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="altri">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/6548273512SS.jpg" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Privacy nel settore assicurativo GDPR</h3>
+
+                <p class="project-category">altri</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="altri">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/6915283160SS.jpg" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Il Cliente impresa</h3>
+
+                <p class="project-category">altri</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="altri">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/7235850612SS.jpg" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Cyber Security</h3>
+
+                <p class="project-category">altri</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="rami auto/infortuni">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/8097634206SS.jpg" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Cyber Security</h3>
+
+                <p class="project-category">Rami Auto/Infortuni</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="altri">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/8219257303SS.jpg" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Principi dell'Agenzia adeguata alle norme</h3>
+
+                <p class="project-category">Altri</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="rami elementari/vita">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/8866633694SS.jpg" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Assicurazione RCG</h3>
+
+                <p class="project-category">Rami Elementari/Vita</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="altri">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/9005808921SS.jpg" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Le polizze collettive</h3>
+
+                <p class="project-category">Altri</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="rami elementari/vita">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/9643708211SS.jpg" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Le polizze collettive</h3>
+
+                <p class="project-category">Rami Elementari/Vita</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="rami elementari/vita">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/9807440539SS.jpg" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Le assicurazioni Long Term Care</h3>
+
+                <p class="project-category">Rami Elementari/Vita</p>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+      <!--
+        - #BLOG
+      -->
+
+      <!-- <article class="blog" data-page="blog">
+
+        <header>
+          <h2 class="h2 article-title">Blog</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
+
+                  <p class="blog-text">
+                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
+
+                  <p class="blog-text">
+                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design digest #80</h3>
+
+                  <p class="blog-text">
+                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
+
+                  <p class="blog-text">
+                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
+
+                  <p class="blog-text">
+                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design digest #79</h3>
+
+                  <p class="blog-text">
+                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article> -->
+
+
+
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55810.92254225793!2d9.116469078136635!3d45.46542161120533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6a13b2897c3%3A0xa540a2f1c9e42a0e!2sMilan%2C%20Metropolitan%20City%20of%20Milan%2C%20Italy!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
+            width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+
+          <h3 class="h3 form-title">Form di contatto</h3>
+
+          <form action="#" class="form" data-form>
+
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Nome completo" required data-form-input>
+
+              <input type="email" name="email" class="form-input" placeholder="Indirizzo Mail" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Digita qui il tuo messaggio" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Invia Richiesta</span>
+            </button>
+
+          </form>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
 </html>
