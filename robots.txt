@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/         # Blocca l'accesso all'area di amministrazione
+Disallow: /login/         # Blocca la pagina di login
+Disallow: /privato/       # Blocca una directory privata
+
+Allow: /public/           # Consente l'accesso a una directory pubblica
+
+Sitemap: https://sscarinzi.it/sitemap.xml
