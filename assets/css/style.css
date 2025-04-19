@@ -2036,3 +2036,94 @@ textarea.form-input::-webkit-resizer { display: none; }
 .privacy-label .link-privacy {
   display: inline; /* Sovrascrive display: block solo in questo caso */
 }
+.blog-modal {
+  background: var(--eerie-black-2);
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  position: relative;
+  box-shadow: var(--shadow-3);
+  border: 1px solid var(--jet);
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Per WebKit (Chrome, Safari) */
+.blog-modal::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+
+.blog-modal h2 {
+  margin-top: 0;
+  color: var(--orange-yellow-crayola); /* Accento blu/arancione come nel tema */
+  font-size: var(--fs-1);
+  font-weight: var(--fw-600);
+}
+
+.blog-modal h3 {
+  color: var(--white-2);
+  margin-top: 1.5rem;
+  font-size: var(--fs-3);
+}
+
+.blog-modal p,
+.blog-modal li {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.blog-modal ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--onyx);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white-2);
+  font-size: 1.5rem;
+  opacity: 0.8;
+  transition: var(--transition-1);
+}
+
+.modal-close-btn:hover {
+  opacity: 1;
+  background: var(--border-gradient-onyx);
+}
+@media (max-width: 768px) {
+  .blog-modal {
+    width: 100vw;
+    height: 100vh;
+    max-height: none;
+    border-radius: 0;
+    padding: 1.5rem;
+    overflow-y: auto;
+  }
+
+  .modal-close-btn {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    font-size: 1.3rem;
+  }
+
+  .modal-content {
+    padding-bottom: 3rem;
+  }
+}
