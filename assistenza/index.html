@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Salva Contatto Assistenza Stradale Vittoria Ass.ni</title>
+  <script>
+    window.onload = function() {
+      const vcfContent = `BEGIN:VCARD
+VERSION:3.0
+FN:Assistenza Stradale
+TEL:800069627
+ORG:Assistenza Stradale Vittoria Ass.ni
+END:VCARD`;
+
+      const blob = new Blob([vcfContent], { type: "text/vcard" });
+      const url = window.URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "contatto.vcf";
+      document.body.appendChild(a);
+      a.click();
+
+      // fallback (nel caso non parta automaticamente)
+      setTimeout(() => {
+        document.getElementById("fallback").style.display = "block";
+      }, 2000);
+    };
+  </script>
+</head>
+<body style="font-family: Arial; text-align:center; padding-top:50px;">
+
+  <h2>Stiamo salvando il contatto...</h2>
+  <p>Se non parte automaticamente, clicca qui sotto:</p>
+
+  <a id="fallback" href="#" onclick="location.reload()" style="display:none;">
+    Scarica contatto
+  </a>
+
+</body>
+</html>
