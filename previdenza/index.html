@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<link rel="icon" type="image/png" href="../scarinzi_samuele.png">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Previdenza Complementare | Samuele Scarinzi</title>
+
+<meta name="description" content="Previdenza complementare moderna e personalizzata con Samuele Scarinzi.">
+<meta name="keywords" content="previdenza complementare,pensione integrativa,fondo pensione,consulenza previdenziale">
+<meta name="author" content="Samuele Scarinzi">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--primary:#00205b;
+--secondary:#2563eb;
+--bg:#f4f7fb;
+--card:#ffffff;
+--text:#0f172a;
+--muted:#64748b;
+--border:#e2e8f0;
+--gradient:linear-gradient(135deg,#00205b,#2563eb);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Inter,sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+line-height:1.5;
+transition:.25s;
+}
+
+body.dark{
+--bg:#020817;
+--card:#0f172a;
+--text:#f8fafc;
+--muted:#cbd5e1;
+--border:rgba(255,255,255,.08);
+--primary:#3b82f6;
+--secondary:#60a5fa;
+}
+
+.container{
+width:min(1220px,calc(100% - 40px));
+margin:auto;
+}
+
+.blur{
+position:fixed;
+width:500px;
+height:500px;
+background:#2563eb20;
+filter:blur(100px);
+z-index:-1;
+border-radius:50%;
+}
+
+.blur.one{
+top:-200px;
+left:-200px;
+}
+
+.blur.two{
+bottom:-200px;
+right:-200px;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:999;
+background:rgba(255,255,255,.82);
+backdrop-filter:blur(10px);
+border-bottom:1px solid var(--border);
+}
+
+body.dark header{
+background:rgba(2,8,23,.88);
+}
+
+.navbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:16px 0;
+gap:20px;
+}
+
+.logo h1{
+font-size:1.25rem;
+font-weight:800;
+}
+
+.logo p{
+font-size:.82rem;
+color:var(--muted);
+}
+
+nav{
+display:flex;
+gap:28px;
+}
+
+nav a{
+text-decoration:none;
+color:var(--text);
+font-weight:600;
+font-size:.95rem;
+}
+
+.actions{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.theme-btn{
+width:48px;
+height:48px;
+border:none;
+border-radius:14px;
+background:var(--card);
+cursor:pointer;
+font-size:1rem;
+color:var(--text);
+border:1px solid var(--border);
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:15px 22px;
+border-radius:16px;
+font-weight:700;
+text-decoration:none;
+transition:.25s;
+border:none;
+cursor:pointer;
+white-space:nowrap;
+}
+
+.btn-primary{
+background:var(--gradient);
+color:#fff;
+box-shadow:0 10px 30px rgba(37,99,235,.2);
+}
+
+.btn-light{
+background:#fff;
+color:#0f172a;
+}
+
+.hero{
+display:grid;
+grid-template-columns:1.1fr .9fr;
+align-items:center;
+gap:70px;
+padding:80px 0;
+min-height:90vh;
+}
+
+.badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:12px 18px;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:999px;
+margin-bottom:28px;
+font-size:.92rem;
+font-weight:600;
+}
+
+.dot{
+width:10px;
+height:10px;
+background:#22c55e;
+border-radius:50%;
+}
+
+.hero h2{
+font-size:clamp(2.6rem,5vw,5rem);
+line-height:1;
+margin-bottom:24px;
+}
+
+.hero p{
+font-size:1.1rem;
+color:var(--muted);
+margin-bottom:34px;
+max-width:650px;
+}
+
+.image-wrap{
+position:relative;
+display:flex;
+justify-content:flex-end;
+}
+
+.image-glow{
+position:absolute;
+width:75%;
+height:75%;
+background:#2563eb30;
+filter:blur(90px);
+border-radius:50%;
+z-index:0;
+}
+
+.image-card{
+position:relative;
+z-index:1;
+max-width:85%;
+}
+
+.image-card img{
+width:100%;
+}
+
+.section{
+padding:100px 0;
+}
+
+.section-head{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-head span{
+font-size:.78rem;
+font-weight:800;
+letter-spacing:4px;
+text-transform:uppercase;
+color:var(--secondary);
+}
+
+.section-head h3{
+font-size:clamp(2rem,5vw,3.5rem);
+margin-top:18px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:28px;
+padding:34px;
+transition:.25s;
+}
+
+.card:hover{
+transform:translateY(-4px);
+}
+
+.card-icon{
+width:65px;
+height:65px;
+border-radius:20px;
+display:grid;
+place-items:center;
+font-size:1.5rem;
+background:#dbeafe;
+margin-bottom:22px;
+}
+
+.card h4{
+font-size:1.3rem;
+margin-bottom:14px;
+}
+
+.card p{
+color:var(--muted);
+}
+
+.banner{
+padding-bottom:100px;
+}
+
+.banner-box{
+background:linear-gradient(135deg,#1d4ed8,#2563eb);
+border-radius:36px;
+padding:60px;
+color:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:30px;
+}
+
+.banner-box h3{
+font-size:clamp(2rem,5vw,3.5rem);
+line-height:1;
+margin-bottom:18px;
+}
+
+.banner-box p{
+color:#dbeafe;
+max-width:700px;
+}
+
+footer{
+padding:80px 0 30px;
+border-top:1px solid var(--border);
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:40px;
+}
+
+.footer-grid h5{
+margin-bottom:18px;
+font-size:1.1rem;
+}
+
+.footer-grid p,
+.footer-grid li{
+list-style:none;
+line-height:1.9;
+color:var(--muted);
+}
+
+.footer-grid a{
+color:inherit;
+text-decoration:none;
+}
+
+.copyright{
+padding-top:40px;
+margin-top:40px;
+border-top:1px solid var(--border);
+text-align:center;
+color:var(--muted);
+font-size:.92rem;
+}
+
+@media(max-width:980px){
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+padding:60px 0;
+}
+
+.hero p{
+margin-inline:auto;
+}
+
+.image-wrap{
+justify-content:center;
+}
+
+.banner-box{
+flex-direction:column;
+text-align:center;
+}
+
+}
+
+@media(max-width:768px){
+
+nav{
+display:none;
+}
+
+.image-wrap{
+display:none;
+}
+
+.hero{
+min-height:auto;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="blur one"></div>
+<div class="blur two"></div>
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+<h1>Samuele Scarinzi</h1>
+<p>Consulente Assicurativo & Previdenziale</p>
+</div>
+
+<nav>
+<a href="/">Home</a>
+<a href="/#servizi">Servizi</a>
+<a href="/#contatti">Contatti</a>
+</nav>
+
+<div class="actions">
+<button class="theme-btn" id="themeBtn">🌙</button>
+<a href="https://wa.me/393515008604" class="btn btn-primary">
+WhatsApp
+</a>
+</div>
+
+</div>
+
+</header>
+
+<section class="hero container">
+
+<div>
+
+<div class="badge">
+<div class="dot"></div>
+Strategie previdenziali moderne
+</div>
+
+<h2>
+📈 Previdenza Complementare
+</h2>
+
+<p>
+Costruisci oggi la tua serenità futura con strategie previdenziali moderne e personalizzate. 
+La pensione pubblica spesso non basta più: pianificare oggi significa proteggere il tuo domani.
+</p>
+
+<a href="https://wa.me/393515008604" class="btn btn-primary">
+Richiedi una consulenza
+</a>
+
+</div>
+
+<div class="image-wrap">
+
+<div class="image-glow"></div>
+
+<div class="image-card">
+<img src="../scarinzi_samuele.png" alt="Samuele Scarinzi">
+</div>
+
+</div>
+
+</section>
+
+<section class="section container">
+
+<div class="section-head">
+<span>Perché farlo</span>
+
+<h3>
+I vantaggi della previdenza complementare
+</h3>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-icon">💰</div>
+
+<h4>Vantaggi Fiscali</h4>
+
+<p>
+Possibilità di ottenere importanti benefici fiscali sui contributi versati ogni anno.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-icon">📈</div>
+
+<h4>Crescita nel tempo</h4>
+
+<p>
+Iniziare presto permette di sfruttare tempo e rendimento per costruire un capitale futuro.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-icon">🛡️</div>
+
+<h4>Tutela Patrimoniale</h4>
+
+<p>
+Strumenti previdenziali pensati per offrire protezione e stabilità nel lungo periodo.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-icon">🎯</div>
+
+<h4>Strategia Personalizzata</h4>
+
+<p>
+Ogni piano viene costruito sulla tua situazione lavorativa, familiare ed economica.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="banner">
+
+<div class="container">
+
+<div class="banner-box">
+
+<div>
+
+<h3>
+Inizia oggi a costruire il tuo futuro.
+</h3>
+
+<p>
+Una corretta pianificazione previdenziale può fare la differenza tra mantenere il tuo stile di vita o doverlo ridimensionare in futuro.
+</p>
+
+</div>
+
+<a href="https://wa.me/393515008604" class="btn btn-light">
+Contattami ora
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container footer-grid">
+
+<div>
+
+<h5>Samuele Scarinzi</h5>
+
+<p>
+Consulente assicurativo e previdenziale specializzato in previdenza complementare e protezione del patrimonio.
+</p>
+
+</div>
+
+<div>
+
+<h5>Servizi</h5>
+
+<ul>
+<li>Previdenza Complementare</li>
+<li>Protezione Famiglia</li>
+<li>Polizze Vita</li>
+<li>Analisi Previdenziale</li>
+</ul>
+
+</div>
+
+<div>
+
+<h5>Contatti</h5>
+
+<ul>
+
+<li>
+📱 
+<a href="tel:+393515008604">
+351 5008604
+</a>
+</li>
+
+<li>
+✉️ 
+<a href="mailto:contact@sscarinzi.it">
+contact@sscarinzi.it
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="container copyright">
+© 2026 Samuele Scarinzi • Tutti i diritti riservati
+</div>
+
+</footer>
+
+<script>
+
+const body=document.body
+const btn=document.getElementById('themeBtn')
+
+if(new Date().getHours()>=19||new Date().getHours()<=7){
+body.classList.add('dark')
+btn.textContent='☀️'
+}
+
+btn.onclick=()=>{
+body.classList.toggle('dark')
+btn.textContent=body.classList.contains('dark')?'☀️':'🌙'
+}
+
+</script>
+
+</body>
+</html>
