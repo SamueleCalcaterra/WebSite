@@ -60,9 +60,12 @@ consulente assicurativo lombardia
 
 <div class="logo">
     <a href="https://sscarinzi.it/">
-        <img src="img/logo_trasparente.png"
-             alt="Samuele Scarinzi"
-             style="height:50px;width:auto;">
+        <img
+            id="siteLogo"
+            src="img/logo_trasparente.png"
+            alt="Samuele Scarinzi"
+            style="height:50px;width:auto;"
+        >
     </a>
 </div>
 
@@ -488,18 +491,30 @@ Informativa Reclami Vittoria Assicurazioni
 
 <script>
 
-const body=document.body
-const btn=document.getElementById('themeBtn')
+const body = document.body;
+const btn = document.getElementById('themeBtn');
+const logo = document.getElementById('siteLogo');
 
-if(new Date().getHours()>=19||new Date().getHours()<=7){
-body.classList.add('dark')
-btn.textContent='☀️'
+function updateTheme() {
+    const dark = body.classList.contains('dark');
+
+    btn.textContent = dark ? '☀️' : '🌙';
+
+    logo.src = dark
+        ? 'img/logo_trasparente_white.png'
+        : 'img/logo_trasparente.png';
 }
 
-btn.onclick=()=>{
-body.classList.toggle('dark')
-btn.textContent=body.classList.contains('dark')?'☀️':'🌙'
+if (new Date().getHours() >= 19 || new Date().getHours() <= 7) {
+    body.classList.add('dark');
 }
+
+updateTheme();
+
+btn.onclick = () => {
+    body.classList.toggle('dark');
+    updateTheme();
+};
 
 </script>
 
