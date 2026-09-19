@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f4f7fb">
+<title>Simulatore beneficio fiscale - Previdenza complementare</title>
+
+<style>
+:root{
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --text:#122033;
+  --muted:#64748b;
+  --line:#e4eaf1;
+  --primary:#1457a6;
+  --primary-dark:#0e4382;
+  --primary-soft:#edf4ff;
+  --green:#138a55;
+  --green-soft:#ecf9f2;
+  --red:#c62828;
+  --red-soft:#fff1f1;
+  --shadow:0 18px 50px rgba(18,32,51,.09);
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+button,input{font:inherit}
+
+.container{
+  width:min(100% - 28px, 820px);
+  margin:0 auto;
+  padding:22px 0 48px;
+}
+
+.header{
+  margin-bottom:18px;
+}
+
+.brand{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.12em;
+  color:var(--primary);
+  text-transform:uppercase;
+  margin-bottom:7px;
+}
+
+h1{
+  margin:0;
+  font-size:clamp(28px,7vw,42px);
+  line-height:1.05;
+  letter-spacing:-.035em;
+}
+
+.subtitle{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.5;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:26px;
+  box-shadow:var(--shadow);
+  padding:20px;
+}
+
+.section-title{
+  margin:0 0 16px;
+  font-size:18px;
+  font-weight:800;
+}
+
+.field{
+  margin-bottom:14px;
+}
+
+label{
+  display:block;
+  margin-bottom:7px;
+  font-size:13px;
+  font-weight:750;
+}
+
+.input-wrap{
+  position:relative;
+}
+
+input[type="number"]{
+  width:100%;
+  min-height:56px;
+  border:1.5px solid var(--line);
+  border-radius:15px;
+  background:#fff;
+  color:var(--text);
+  padding:0 48px 0 15px;
+  font-size:17px;
+  font-weight:650;
+  outline:none;
+  -moz-appearance:textfield;
+  appearance:textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+  -webkit-appearance:none;
+  margin:0;
+}
+
+input[type="number"]:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 4px rgba(20,87,166,.10);
+}
+
+.suffix{
+  position:absolute;
+  right:15px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--muted);
+  font-weight:700;
+  pointer-events:none;
+}
+
+button{
+  width:100%;
+  min-height:56px;
+  border:0;
+  border-radius:15px;
+  background:var(--primary);
+  color:#fff;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 10px 22px rgba(20,87,166,.20);
+  transition:transform .15s ease,background .15s ease;
+}
+
+button:hover{background:var(--primary-dark)}
+button:active{transform:scale(.985)}
+
+.results{
+  margin-top:18px;
+  display:none;
+}
+
+.results.show{
+  display:block;
+}
+
+.result-main{
+  background:var(--green-soft);
+  border:1px solid #cceedd;
+  border-radius:22px;
+  padding:20px;
+  margin-bottom:14px;
+}
+
+.result-title{
+  color:var(--green);
+  font-size:12px;
+  font-weight:850;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.result-label{
+  margin-top:17px;
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:.08em;
+  color:var(--muted);
+}
+
+.result-amount{
+  margin-top:5px;
+  font-size:clamp(34px,9vw,52px);
+  line-height:1;
+  font-weight:900;
+  letter-spacing:-.045em;
+  color:var(--green);
+}
+
+.result-percent{
+  margin-top:8px;
+  font-size:18px;
+  font-weight:800;
+  color:var(--green);
+}
+
+
+.box{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:20px;
+  padding:18px;
+  margin-bottom:14px;
+}
+
+.box-title{
+  font-size:12px;
+  font-weight:850;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:14px;
+}
+
+.rate-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.rate-item{
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:14px;
+  background:#fafcff;
+}
+
+.rate-name{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.rate-value{
+  margin-top:5px;
+  font-size:25px;
+  font-weight:850;
+}
+
+.rate-desc{
+  margin-top:4px;
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.35;
+}
+
+.explanation{
+  margin-top:12px;
+  padding:13px 14px;
+  border-radius:14px;
+  background:var(--primary-soft);
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.explanation strong{color:var(--text)}
+
+.alert{
+  display:none;
+  border:1px solid #f2c5c5;
+  background:var(--red-soft);
+  color:#8d2020;
+  border-radius:18px;
+  padding:16px;
+  margin-bottom:14px;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.alert strong{
+  display:block;
+  margin-bottom:5px;
+  font-size:14px;
+}
+
+.note{
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.45;
+  margin-top:14px;
+}
+
+@media (max-width:560px){
+  .container{width:min(100% - 20px,820px);padding-top:16px}
+  .card{padding:16px;border-radius:22px}
+  .rate-grid{grid-template-columns:1fr}
+}
+
+/* Tema automatico in base all'orario di apertura:
+   chiaro dalle 07:00 alle 18:59, scuro dalle 19:00 alle 06:59 */
+body.dark{
+  --bg:#0b1220;
+  --card:#111b2d;
+  --text:#f3f7fc;
+  --muted:#9eabc0;
+  --line:#26344a;
+  --primary:#5b9bea;
+  --primary-dark:#78aff2;
+  --primary-soft:#142947;
+  --green:#42c98a;
+  --green-soft:#10291f;
+  --red:#ff7676;
+  --red-soft:#32191d;
+  --shadow:0 18px 50px rgba(0,0,0,.30);
+}
+
+body.dark input[type="number"]{
+  background:#0d1728;
+  color:var(--text);
+  border-color:var(--line);
+}
+
+body.dark input[type="number"]:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 4px rgba(91,155,234,.15);
+}
+
+body.dark .rate-item{
+  background:#0d1728;
+  border-color:var(--line);
+}
+
+body.dark .pill{
+  background:#162437;
+  color:var(--green);
+}
+
+body.dark .explanation{
+  background:var(--primary-soft);
+}
+
+body.dark .box{
+  background:var(--card);
+}
+
+body.dark .result-main{
+  background:var(--green-soft);
+  border-color:#1e5a40;
+}
+
+body.dark .alert{
+  background:var(--red-soft);
+  border-color:#633137;
+  color:#ffb1b1;
+}
+
+
+.ral-cliente{
+  margin-top:4px;
+}
+
+
+.ivass-disclosure{
+  margin-top:18px;
+  text-align:center;
+  color:var(--muted);
+  font-size:10.5px;
+  line-height:1.45;
+  font-weight:600;
+}
+
+
+.ivass-disclosure a{
+  color:inherit;
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+
+
+.contact-overlay{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:16px;
+  background:rgba(8,18,32,.48);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .25s ease,visibility .25s ease;
+}
+.contact-overlay.show{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+.contact-popup{
+  position:relative;
+  width:min(100%,520px);
+  padding:24px 20px 20px;
+  border-radius:25px;
+  background:var(--card);
+  color:var(--text);
+  border:1px solid var(--line);
+  box-shadow:0 24px 70px rgba(0,0,0,.24);
+  transform:translateY(22px);
+  transition:transform .3s ease;
+}
+.contact-overlay.show .contact-popup{transform:translateY(0)}
+.contact-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:38px;
+  min-height:38px;
+  padding:0;
+  border-radius:50%;
+  background:transparent;
+  color:var(--muted);
+  box-shadow:none;
+  font-size:28px;
+  line-height:1;
+}
+.contact-close:hover{
+  background:var(--primary-soft);
+  color:var(--text);
+}
+.contact-kicker{
+  color:var(--primary);
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:.1em;
+}
+.contact-popup h2{
+  margin:6px 35px 7px 0;
+  font-size:27px;
+  line-height:1.08;
+  letter-spacing:-.03em;
+}
+.contact-popup p{
+  margin:0 0 16px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5;
+}
+.contact-button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:50px;
+  margin-top:9px;
+  border-radius:14px;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:800;
+}
+.contact-button.whatsapp{
+  background:#168b59;
+  color:#fff;
+}
+.contact-button.email{
+  background:var(--primary-soft);
+  color:var(--primary);
+}
+.contact-signature{
+  margin-top:15px;
+  text-align:center;
+  font-size:12px;
+  font-weight:800;
+}
+.contact-signature span{
+  color:var(--muted);
+  font-weight:600;
+}
+@media (min-width:600px){
+  .contact-overlay{
+    align-items:center;
+  }
+}
+
+
+.conversion-box{
+  margin:14px 0;
+  padding:20px;
+  border-radius:20px;
+  background:var(--primary-soft);
+  border:1px solid rgba(20,87,166,.16);
+}
+.conversion-kicker{
+  color:var(--primary);
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.conversion-box h3{
+  margin:7px 0 8px;
+  font-size:21px;
+  line-height:1.15;
+  letter-spacing:-.025em;
+}
+.conversion-box p{
+  margin:0;
+  color:var(--muted);
+  font-size:13.5px;
+  line-height:1.5;
+}
+.conversion-button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  margin-top:15px;
+  border-radius:14px;
+  background:var(--primary);
+  color:#fff;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:800;
+  box-shadow:0 8px 18px rgba(20,87,166,.18);
+}
+.conversion-button:hover{background:var(--primary-dark)}
+
+</style>
+</head>
+
+<body>
+<main class="container">
+
+  <header class="header">
+    <div class="brand">SCARINZI SAMUELE · CONSULENTE ASSICURATIVO</div>
+    <h1>Simulatore beneficio fiscale</h1>
+    <p class="subtitle">
+      Stima il recupero fiscale derivante da un versamento alla previdenza complementare.
+    </p>
+  </header>
+
+  <section class="card">
+    <h2 class="section-title">Inserisci i tuoi dati</h2>
+
+    <div class="field">
+      <label for="reddito">Reddito imponibile annuo</label>
+      <div class="input-wrap">
+        <input id="reddito" type="number" inputmode="decimal" min="1" step="100"
+               placeholder="Es. 35000">
+        <span class="suffix">€</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="versamento">Versamento al fondo pensione</label>
+      <div class="input-wrap">
+        <input id="versamento" type="number" inputmode="decimal" min="0" step="100"
+               placeholder="Es. 5300">
+        <span class="suffix">€</span>
+      </div>
+    </div>
+
+    <button id="calcola" type="button">CALCOLA SIMULAZIONE</button>
+  </section>
+
+  <section id="risultati" class="results">
+
+    <div class="result-main">
+      <div class="result-title">Recuperi circa</div>
+      <div id="importoRecupero" class="result-amount">0,00 €</div>
+      <div class="result-percent">Ovvero il <span id="percentualeRecupero">0,00%</span> di <span id="versatoRecupero">0,00 €</span></div>
+    </div>
+
+
+    <div class="conversion-box">
+      <div class="conversion-kicker">IL PROSSIMO PASSO</div>
+      <h3>Il tuo vantaggio fiscale è solo una parte del risultato.</h3>
+      <p>
+        Un fondo pensione può aiutarti a costruire nel tempo una posizione previdenziale
+        aggiuntiva, sfruttando anche la deducibilità fiscale dei contributi.
+        Se vuoi capire quanto potrebbe avere senso per te, possiamo fare una simulazione
+        personalizzata.
+      </p>
+      <a class="conversion-button" href="https://wa.me/393515008604?text=Ciao%20Samuele!%20Ho%20fatto%20la%20simulazione%20del%20fondo%20pensione%20e%20vorrei%20capire%20se%20può%20essere%20adatto%20a%20me." target="_blank" rel="noopener noreferrer">
+        Voglio approfondire
+      </a>
+    </div>
+
+    <div class="box">
+      <div class="box-title">ALIQUOTA</div>
+
+      <div class="rate-grid">
+        <div class="rate-item">
+          <div class="rate-name">Aliquota media</div>
+          <div id="aliquotaMedia" class="rate-value">0,00%</div>
+          <div id="ralCliente" class="rate-desc ral-cliente">Reddito Annuo Lordo: 0,00 €</div>
+        </div>
+
+        <div class="rate-item">
+          <div class="rate-name">Aliquota marginale di riferimento</div>
+          <div id="aliquotaMarginale" class="rate-value">0%</div>
+          <div id="descrizioneMarginale" class="rate-desc"></div>
+        </div>
+      </div>
+
+      <div class="explanation">
+        <strong>Cos'è l'aliquota media?</strong><br>
+        L'IRPEF è calcolata attraverso 3 scaglioni di reddito:
+        <strong>23%</strong> fino a 28.000 €,
+        <strong>33%</strong> da 28.001 € a 50.000 € e
+        <strong>43%</strong> oltre 50.000 €.
+        L'aliquota media rappresenta la percentuale media di IRPEF
+        calcolata sul reddito complessivo, considerando gli scaglioni
+        che interessano quel reddito.
+      </div>
+    </div>
+
+    <div id="avviso" class="alert">
+      <strong>⚠️ Attenzione: hai superato il limite ordinario</strong>
+      Hai inserito un versamento superiore a 5.300 €. In questa simulazione
+      vengono considerati deducibili al massimo 5.300 €. L'eventuale
+      extradeducibilità non viene verificata dal calcolatore.
+    </div>
+
+
+    <div class="ivass-disclosure">
+      Intermediario assicurativo sottoposto alla vigilanza
+      <a href="https://www.ivass.it/" target="_blank" rel="noopener noreferrer">IVASS</a>,
+      iscritto al
+      <a href="https://www.ivass.it/consumatori/rui/index.html" target="_blank" rel="noopener noreferrer">RUI</a>
+      Sez. E n. E000763691
+    </div>
+
+    <div class="note">
+      Simulazione indicativa basata sul metodo impostato nel calcolatore.
+      Il beneficio fiscale effettivo può dipendere dalla situazione fiscale
+      complessiva del contribuente.
+    </div>
+
+  </section>
+</main>
+
+<script>
+(function(){
+
+  function applicaTemaAutomatico(){
+    const ora = new Date().getHours();
+    const scuro = ora >= 19 || ora < 7;
+    document.body.classList.toggle('dark', scuro);
+  }
+
+  applicaTemaAutomatico();
+
+  const LIMITE_DEDUCIBILE = 5300;
+
+  function calcolaIRPEF(reddito){
+    if (reddito <= 28000){
+      return reddito * 0.23;
+    }
+
+    if (reddito <= 50000){
+      return (28000 * 0.23) + ((reddito - 28000) * 0.33);
+    }
+
+    return (28000 * 0.23)
+         + (22000 * 0.33)
+         + ((reddito - 50000) * 0.43);
+  }
+
+  function getMarginale(reddito){
+    if (reddito <= 28000) return 23;
+    if (reddito <= 50000) return 33;
+    return 43;
+  }
+
+  function formatEuro(value){
+    return new Intl.NumberFormat('it-IT', {
+      style:'currency',
+      currency:'EUR',
+      minimumFractionDigits:2,
+      maximumFractionDigits:2
+    }).format(value);
+  }
+
+  function formatPercent(value){
+    return value.toLocaleString('it-IT', {
+      minimumFractionDigits:2,
+      maximumFractionDigits:2
+    }) + '%';
+  }
+
+  function calcola(){
+
+    const redditoInput = document.getElementById('reddito');
+    const versamentoInput = document.getElementById('versamento');
+
+    const reddito = Number(redditoInput.value);
+    const versamento = Number(versamentoInput.value);
+
+    if (!Number.isFinite(reddito) || reddito <= 0){
+      alert('Inserisci un reddito imponibile valido.');
+      redditoInput.focus();
+      return;
+    }
+
+    if (!Number.isFinite(versamento) || versamento < 0){
+      alert('Inserisci un versamento valido.');
+      versamentoInput.focus();
+      return;
+    }
+
+    const irpef = calcolaIRPEF(reddito);
+
+    // Aliquota media = IRPEF lorda / reddito
+    const aliquotaMedia = (irpef / reddito) * 100;
+
+    const aliquotaMarginale = getMarginale(reddito);
+
+    // Metodo richiesto:
+    // versamento deducibile × aliquota media = recupero fiscale
+    const quotaDeducibile = Math.min(versamento, LIMITE_DEDUCIBILE);
+    const recupero = quotaDeducibile * (aliquotaMedia / 100);
+
+    document.getElementById('importoRecupero').textContent = formatEuro(recupero);
+    document.getElementById('percentualeRecupero').textContent = formatPercent(aliquotaMedia);
+    document.getElementById('versatoRecupero').textContent = formatEuro(quotaDeducibile);
+    document.getElementById('aliquotaMedia').textContent = formatPercent(aliquotaMedia);
+    document.getElementById('ralCliente').textContent = 'Reddito Annuo Lordo: ' + formatEuro(reddito);
+    document.getElementById('aliquotaMarginale').textContent = aliquotaMarginale + '%';
+
+    let descrizione = '';
+    if (aliquotaMarginale === 23){
+      descrizione = 'Reddito fino a 28.000 €';
+    } else if (aliquotaMarginale === 33){
+      descrizione = 'Reddito tra 28.001 € e 50.000 €';
+    } else {
+      descrizione = 'Reddito oltre 50.000 €';
+    }
+
+    document.getElementById('descrizioneMarginale').textContent = descrizione;
+
+    document.getElementById('avviso').style.display =
+      versamento > LIMITE_DEDUCIBILE ? 'block' : 'none';
+
+    document.getElementById('risultati').classList.add('show');
+
+    if (typeof window.scheduleContactPopup === 'function') {
+      window.scheduleContactPopup();
+    }
+
+    setTimeout(function(){
+      document.getElementById('risultati').scrollIntoView({
+        behavior:'smooth',
+        block:'start'
+      });
+    }, 30);
+  }
+
+  document.getElementById('calcola').addEventListener('click', calcola);
+
+  // Invio da tastiera: Enter nei campi
+  document.getElementById('reddito').addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){
+      e.preventDefault();
+      calcola();
+    }
+  });
+
+  document.getElementById('versamento').addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){
+      e.preventDefault();
+      calcola();
+    }
+  });
+
+})();
+</script>
+
+
+<div id="contactOverlay" class="contact-overlay" aria-hidden="true">
+  <div class="contact-popup" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <button id="closeContact" class="contact-close" type="button" aria-label="Chiudi">×</button>
+    <div class="contact-kicker">VUOI APPROFONDIRE?</div>
+    <h2 id="contactTitle">Parliamone insieme.</h2>
+    <p>
+      Se vuoi capire quanto potresti recuperare e valutare la soluzione più adatta
+      alla tua situazione, puoi contattarmi direttamente.
+    </p>
+
+    <a class="contact-button whatsapp" href="https://wa.me/393515008604?text=Ciao%20Samuele!%20Vorrei%20approfondire%20il%20calcolo%20del%20fondo%20pensione." target="_blank" rel="noopener noreferrer">
+      Scrivimi su WhatsApp
+    </a>
+
+    <a class="contact-button email" href="mailto:contact@sscarinzi.it">
+      Inviami una email
+    </a>
+
+    <div class="contact-signature">
+      Scarinzi Samuele<br>
+      <span>Consulente Assicurativo</span>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<script>
+(function () {
+  var popupTimer = null;
+  var simulationCalculated = false;
+
+  function openContactPopup() {
+    var overlay = document.getElementById('contactOverlay');
+    if (!overlay) return;
+    overlay.classList.add('show');
+    overlay.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeContactPopup() {
+    var overlay = document.getElementById('contactOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('show');
+    overlay.setAttribute('aria-hidden', 'true');
+  }
+
+  function scheduleContactPopup() {
+    if (!simulationCalculated) return;
+
+    if (popupTimer) {
+      clearTimeout(popupTimer);
+    }
+
+    popupTimer = setTimeout(function () {
+      openContactPopup();
+    }, 8000);
+  }
+
+  window.scheduleContactPopup = function () {
+    simulationCalculated = true;
+    scheduleContactPopup();
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var closeButton = document.getElementById('closeContact');
+    var overlay = document.getElementById('contactOverlay');
+
+    if (closeButton) {
+      closeButton.addEventListener('click', closeContactPopup);
+    }
+
+    if (overlay) {
+      overlay.addEventListener('click', function (event) {
+        if (event.target === overlay) {
+          closeContactPopup();
+        }
+      });
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
